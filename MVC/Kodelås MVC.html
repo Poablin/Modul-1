@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Koden er 1234</title>
+    <style>
+        button {
+            cursor: pointer;
+            margin: 4px 4px;
+            font-size: 50px;
+            background-color: darkred;
+            color: white;
+            border: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <button onclick="addNumber(1)">1</button>
+    <button onclick="addNumber(2)">2</button>
+    <button onclick="addNumber(3)">3</button> <br />
+    <button onclick="addNumber(4)">4</button>
+    <button onclick="addNumber(5)">5</button>
+    <button onclick="addNumber(6)">6</button> <button onclick="enter(this)">Enter</button> <br />
+    <button onclick="addNumber(7)">7</button> 
+    <button onclick="addNumber(8)">8</button> 
+    <button onclick="addNumber(9)">9</button> <button onclick="reset(this)">Reset</button>
+    <div>
+        <h1 id="info"></h1>
+    </div>
+
+    <script>
+        
+        var infoH1 = document.getElementById('info');
+        
+        //model
+        var correctCode = 1234;
+        var currentCode = '';
+        
+        //view
+        function showNumber() {
+            infoH1.innerHTML = currentCode;
+        }
+        //controller
+        function addNumber(x) {
+                currentCode += x;
+                showNumber();
+        }
+        
+        function enter(enter) {
+            if  (currentCode == correctCode) {
+            alert('Riktig!')
+            currentCode = '';
+            showNumber();
+        }
+            
+             else {
+                alert('Feil!')
+                currentCode = '';
+                showNumber();
+            }
+        }
+
+        function reset() {
+            currentCode = '';
+            showNumber();
+        }
+
+    </script>
+</body>
+</html>
