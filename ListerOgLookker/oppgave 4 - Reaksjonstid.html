@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .lamp {
+            background-color: tomato;
+            border: thin;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            float: left;
+        }
+
+        .lightOn {
+            background-color: yellow;
+        }
+
+        .firstOnLine {
+            clear: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="show"></div>
+    <script>
+        let showDiv = document.getElementById('show');
+        //model
+        let selectedLampIndex;
+        let startTime = new Date().getTime();
+        let finishTime;
+        //view
+        turnOn()
+        updateView()
+
+        function updateView() {
+            let html = '';
+            let spentMilliseconds = Math.floor(finishTime - startTime);
+            let spentSeconds = spentMilliseconds / 1000;
+            for (i = 0; i < 25; i++) {
+                let first = i % 5 == 0 ? 'firstOnLine' : '';
+                let light = i == selectedLampIndex ? 'lightOn' : '';
+                let lightFunction = i == selectedLampIndex ? 'onclick="turnOn()"' : '';
+
+                html += `<div class="lamp ${first} ${light}"${lightFunction}></div>`
+            }
+            html += `<div>Start Time:${startTime} Finish Time: ${finishTime} Spent seconds: ${spentSeconds} </div>`
+            showDiv.innerHTML = html;
+        }
+        //controller
+        function turnOn() {
+            finishTime = new Date().getTime();
+            selectedLampIndex = Math.floor(Math.random() * 25)
+            updateView()
+            startTime = new Date().getTime();
+        }
+    </script>
+
+</body>
+
+</html>

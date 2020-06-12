@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="testing('onload')">
+    <p>Funksjoner med parametre</p>
+    <input type="text" onchange="testing('onchange')" oninput="testing('oninput')" />
+    <h3 onmouseover="testing('onmousover')" onmouseout="testing('onmouseout')">Test test test</h3>
+    <h2 id="info"></h2>
+
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
+    <script>
+        var info = document.getElementById('info')
+        
+        function testing(list) {
+            info.innerHTML += `<li>${list}</li>`;
+        }
+    </script>
+</body>
+</html>

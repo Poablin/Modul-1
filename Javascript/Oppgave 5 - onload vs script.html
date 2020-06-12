@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="tid()">
+
+    <div>
+        <h1 id="info1"></h1>
+        <h1 id="info2"></h1>
+        <img src="eple.jpg" />
+    </div>
+
+    <script>
+        
+
+        document.getElementById('info1').innerHTML = 'Script tid: ' + new Date().toTimeString();
+
+        function tid() {
+            
+
+            document.getElementById('info2').innerHTML = 'Onload tid: ' + new Date().toTimeString();
+        }
+
+    </script>
+</body>
+</html>

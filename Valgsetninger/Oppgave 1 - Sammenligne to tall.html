@@ -1,0 +1,58 @@
+﻿﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="resultatBox">
+    </div>
+    <script>
+        //model
+        
+        var tallA = '5';
+        var tallB = '50';
+
+        //view
+    
+        show()
+
+    function show() {
+    document.getElementById('resultatBox').innerHTML = `
+    <input type="range"; min="1"; max="50"; step="1" 
+    onchange="settallA(this.value)"
+    value="${tallA}"/>
+    <input type="range"; min="1"; max="50"; step="1" 
+    onchange="settallB(this.value)"
+    value="${tallB}"/> 
+    <h1>Valg ${tallA} og ${tallB}</h1>
+    ${compare(tallA == tallB, '==', 'Tallene er like')}<br/>
+    ${compare(tallA != tallB, '!=', 'Tallene er ulike')}<br/>
+    ${compare(tallA >= tallB, '>=', tallA + ' er større enn eller lik ' + tallB)}<br/>
+    ${compare(tallA > tallB, '>', tallA + ' er større enn eller lik ' + tallB)}<br/>
+    ${compare(tallA <= tallB, '<=', tallA + ' er større enn eller lik ' + tallB)}<br/>
+    ${compare(tallA < tallB, '<', tallA + ' er større enn eller lik ' + tallB)}<br/>
+    `;
+    function compare(comparison, operator, textIfTrue) {
+            return operator + ' ' + wrap(comparison, textIfTrue);
+        }
+
+        function wrap(doWrap, text) {
+            return doWrap ? text : `<del>${text}</del>`;
+        }
+    }
+        //controller
+        
+        function settallA(value) {
+            tallA = parseInt(value);
+            show();
+        }
+
+        function settallB(value) {
+            tallB = parseInt(value);
+            show();
+        }
+    </script>
+</body>
+</html>

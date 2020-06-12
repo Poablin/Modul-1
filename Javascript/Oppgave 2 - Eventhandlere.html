@@ -1,0 +1,30 @@
+﻿﻿
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Oppgave 2 - Alternative eventhandlere: onchange osv.</p>
+    <input type="text" onkeydown="testonkeydown()" />
+    <h3 ondblclick="testondblclick()" oncontextmenu="testoncontextmenu()">Test test test</h3>
+    <h2 id="info"></h2>
+
+    <script>
+        function testondblclick() {
+            console.log("ondblclick");
+        }
+
+        function testoncontextmenu() {
+            console.log("oncontextmenu");
+        }
+
+        function testonkeydown() {
+            console.log("onkeydown");
+        }
+
+    </script>
+</body>
+</html>

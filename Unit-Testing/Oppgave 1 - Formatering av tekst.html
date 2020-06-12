@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Formatering av tekst</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.10.0.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.10.0.js"></script>
+    <script src="formateringavtekst.js"></script>
+    <script>
+        QUnit.test("fix - 'hallo'", function (assert) {
+            let actual = fixText('hallo');
+            let expected = 'Hallo';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - 'hallo '", function (assert) {
+            const actual = fixText('hallo ');
+            const expected = 'Hallo';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - ' hallo'", function (assert) {
+            const actual = fixText(' hallo');
+            const expected = 'Hallo';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - ' hallo '", function (assert) {
+            const actual = fixText(' hallo ');
+            const expected = 'Hallo';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - 'hAllo'", function (assert) {
+            let actual = fixText('hAllo');
+            let expected = 'Hallo';
+            assert.equal(actual, expected);
+        });
+        
+        QUnit.test("fix - 'haLlo'", function (assert) {
+            let actual = fixText('haLlo');
+            let expected = 'Hallo';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - 'halLo'", function (assert) {
+            let actual = fixText('halLo');
+            let expected = 'Hallo';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - 'hallO'", function (assert) {
+            let actual = fixText('hallO');
+            let expected = 'Hallo';
+            assert.equal(actual, expected);
+        });
+    </script>
+</body>
+</html>

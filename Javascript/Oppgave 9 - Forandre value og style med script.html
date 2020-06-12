@@ -1,0 +1,78 @@
+﻿﻿
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        input {
+            line-height: 1.6em;
+            height: 1.6em;
+            margin: 20px 2px;
+            padding: 0px;
+            font-size: inherit;
+            }
+            div {
+                font-size: 30px;
+            }
+        .style1 {
+            background-color: red;
+        }
+        .style2 {
+            color: green;
+        }
+        .style3 {
+            font-size: 50px;
+        }
+        .style4 {
+            border-style: solid;
+        }
+        .style5 { 
+            border-style: dashed;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">Hei Hei Hei Hei</div>
+        <input id="stil1" onchange="toggleStyle1(this)" type="checkbox"> Backgrunns farge
+        <br />
+        <div id="div2">Hei Hei Hei Hei</div>
+        <input id="stil2" onchange="toggleStyle2(this)" type="checkbox"> Tekst farge
+        <br />
+        <div id="div3">Hei Hei Hei Hei</div>
+        <input id="stil3" onchange="toggleStyle3(this)" type="checkbox"> Font størrelse
+        <br />
+        <div id="div4">Hei Hei Hei Hei</div>
+        <input id="stil4" onchange="toggleStyle4(this)" type="checkbox"> Ramme solid
+        <br />
+        <div id="div5">Hei Hei Hei Hei</div>
+        <input id="stil5" onchange="toggleStyle5(this)" type="checkbox"> Ramme dashed
+    <script>
+        
+        var isChecked = document.checked;
+        
+        function valgt() {
+            document.getElementById('stil1').checked = classList.contains('style1');
+        }
+        
+        
+        function toggleStyle1() {
+            document.getElementById('div1').classList.toggle('style1', isChecked);
+            }
+        function toggleStyle2() {
+            document.getElementById('div2').classList.toggle('style2', isChecked);
+        }
+        function toggleStyle3() {
+            document.getElementById('div3').classList.toggle('style3', isChecked);
+        }
+        function toggleStyle4() {
+            document.getElementById('div4').classList.toggle('style4', isChecked);
+        }
+        function toggleStyle5() {
+            document.getElementById('div5').classList.toggle('style5', isChecked);
+        }
+    </script>
+</body>
+</html>

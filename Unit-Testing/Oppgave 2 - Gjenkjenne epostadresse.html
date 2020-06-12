@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Gjenkjenne epostadresse</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.10.0.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.10.0.js"></script>
+    <script src="epost.js"></script>
+    <script>
+    QUnit.test("test - 'heidu@gmail.com'", function (assert) {
+        let actual = emailTest('heidu.@.gmail.com');
+        let expected = 'True';
+        assert.equal(actual, expected);
+    });
+    </script>
+</body>
+</html>

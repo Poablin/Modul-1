@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tre på rad med løsning</title>
+    <style type="text/css">
+        div.rute {
+            background-color: wheat;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 2px;
+            font-size: 500%;
+            font-family: helvetica;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        div.first {
+            clear: left;
+        }
+
+        div.resultat {
+            font-size: 100px;
+        }
+
+        input.button {
+            position: relative;
+            float: left;
+            clear: left;
+            margin: 50px 80px;
+            width: 150px;
+            height: 50px;
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="board"></div>
+    <div id="resultat" class="resultat"></div>
+    <input id="button" class="button" type="button" value="Reset" onclick="reset()">
+
+    <script>
+        let boardDiv = document.getElementById('board');
+        let resultatDiv = document.getElementById('resultat')
+        //model
+        let board = ['', '', '', '', '', '', '', '', '']
+        let hasWon = null;
+        //view
+        showBoard()
+        function showBoard() {
+            let inside = '';
+            for (let i = 0; i < 9; i++) {
+                let firstOnLine = i % 3 == 0 ? 'first' : '';
+                inside += `<div onclick="setX(${i})" class="rute ${firstOnLine}">${board[i]}</div>`;
+            }
+            boardDiv.innerHTML = inside;
+            if (hasWon == true) resultatDiv.innerHTML = 'Winner!';
+            if (hasWon == false) resultatDiv.innerHTML = '';
+
+        }
+        //controller
+        function setX(index) {
+            if (hasWon == true) return
+            if (board[index] == '') {
+                board[index] = 'X';
+                checkWinning()
+                setRandomO()
+            }
+            showBoard()
+        }
+        function setRandomO() {
+            if (hasWon == true) return
+            let blank = Array.from(board.keys()).filter(i => board[i] === '');
+            if (blank.length == 0) return;
+            let randomNum = Math.floor(Math.random() * blank.length);
+            let blankI = blank[randomNum];
+            board[blankI] = 'O'
+            checkWinning()
+            showBoard()
+        }
+        function checkWinning() {
+            if (checkPossible(0, 1, 2)
+                || checkPossible(3, 4, 5)
+                || checkPossible(6, 7, 8)
+                || checkPossible(0, 3, 6)
+                || checkPossible(1, 4, 7)
+                || checkPossible(2, 5, 8)
+                || checkPossible(2, 4, 6)
+                || checkPossible(0, 4, 8)) {
+                return hasWon = true;
+            } else return hasWon = false;
+        }
+        function checkPossible(index1, index2, index3) {
+            return (board[index1] == 'X' || board[index1] == 'O')
+                && board[index1] == board[index2]
+                && board[index1] == board[index3];
+        }
+        function reset() {
+            board = ['', '', '', '', '', '', '', '', ''];
+            checkWinning()
+            showBoard()
+        }
+    </script>
+</body>
+
+</html>

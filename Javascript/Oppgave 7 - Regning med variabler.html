@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .slider {
+            width: 100%;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <input id="bredde" type="range" class="slider" min="1" max="1000" oninput="kalkuler()" value="50" />
+    <input id="høyde" type="range" class="slider" min="1" max="1000" oninput="kalkuler()" value="50" />
+
+    <div id="resultat" >
+        Teste div
+    </div>
+
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var breddeinput = document.getElementById('bredde');
+        var høydeinput = document.getElementById('høyde');
+        var width = document.getElementById('bredde')
+        var height = document.getElementById('høyde')
+
+        kalkuler()
+
+        function kalkuler() {
+            var bredde = parseInt(breddeinput.value);
+            var høyde = parseInt(høydeinput.value);
+            var sum = bredde * høyde;
+            var sum2 = bredde * bredde + høyde * høyde;
+            resultatDiv.innerHTML = '<div style="'
+                + 'width: ' + width.value + 'px;'
+                + 'height: ' + height.value + 'px;'
+                + 'background-color: red' + ';'
+                + 'font-size: 50px' + ';'
+                + 'color: green' + ';'
+                + '">'
+                + ' ' + bredde + '*' + høyde + '=' + sum + '<br/>'
+                + bredde + '*' + høyde + '=' + sum2;
+                + '</div>';
+
+
+
+        }
+    </script>
+</body>
+</html>

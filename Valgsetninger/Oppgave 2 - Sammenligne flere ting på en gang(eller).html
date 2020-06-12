@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Sammenligne flere ting på en gang</h1>
+    <div id="rute" style="width: 200px; height: 200px; text-align: center; font-size: 50px;";>
+Farge testing her!
+    </div>
+    <input type="button" onclick="bColor('black')"> Black <br>
+    <input type="button" onclick="bColor('darkblue')"> Dark Blue <br>
+    <input type="button" onclick="bColor('lightgrey')"> Light Grey <br>
+    <input type="button" onclick="bColor('lightgreen')"> Light Green <br>
+    <input type="button" onclick="bColor('red')"> Light Red
+    
+    <script>
+    var backgroundC = '';
+    var showRute = document.getElementById('rute');
+       
+    function bColor(color) {
+    backgroundC = color;
+    show();
+    }
+
+    function show() {
+      showRute.style.backgroundColor = backgroundC;
+      
+      if (backgroundC == 'black' || backgroundC == 'darkblue') {
+       showRute.style.color = 'white';
+      } else { 
+        showRute.style.color = 'black';
+      }
+    }
+    </script>
+
+</body>
+</html>

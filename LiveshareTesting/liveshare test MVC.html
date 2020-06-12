@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 2 - LS2</title>
+    <style>
+        body {
+            height: 100%;
+        }
+        .valg {
+            list-style-type: none;
+
+        }
+
+        .valg input:hover {
+            color: red;
+        }
+       
+        #story {
+            border: 1px solid black;
+            display: inline-block;
+        }
+        #story div {
+            font-size:2.5vw;
+            float: left;
+            margin: 1px;
+            width: 0px auto;
+            height: 0 auto;
+            padding-left: 5px;
+        }
+        .btn {
+            margin-top: 4px;
+            margin-right: 1px;
+            line-height: 1;
+            border: none;
+            border-radius: 25%;
+            outline:none;
+            width:90px;
+            height:40px;
+            cursor:pointer;
+            font-size:20px;
+            font-family:lucida;
+            
+        }
+
+        input:hover,
+        input:focus {
+            background: aqua;
+        }
+        .story.dot {
+            padding-left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="story">
+        <div></div>
+    </div>
+
+    <div class="valg">
+        <input class="btn" type="button" value="Liten" onclick="add1('liten')" />
+        <input class="btn" type="button" value="Stor" onclick="add1('stor')" /> <br />
+        <input class="btn" type="button" value="Fin" onclick="add2('fin')" />
+        <input class="btn" type="button" value="Ekkel" onclick="add2('ekkel')" /> <br />
+        <input class="btn" type="button" value="Sulten" onclick="add3('sulten')" />
+        <input class="btn" type="button" value="Mett" onclick="add3('mett')" /> <br />
+        <input class="btn" type="button" value="Foss" onclick="add4('foss')" />
+        <input class="btn" type="button" value="Stein" onclick="add4('stein')" />
+    </div>
+
+<script>
+var storyDiv = document.getElementById('story');
+
+//M
+var word1 = '___';
+var word2 = '___';
+var word3 = '___';
+var word4 = '___';
+
+//V
+show()
+function show() {
+storyDiv.innerHTML = `<div> Det var en ${word1} og ${word2} gutt som var veldig ${word3}. Han bodder under en ${word4}.</div>`;
+}
+
+    
+//C
+function add1(word) {
+    word1 = word;
+    return show();
+}
+function add2(word) {
+    word2 = word;
+    return show();
+}
+function add3(word) {
+    word3 = word;
+    return show();
+}
+function add4(word) {
+    word4 = word;
+    return show();
+}
+</script>
+
+</body>
+
+</html>
