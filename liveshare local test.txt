@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        p.mainContent {
+            text-align: center;
+            font-size: 100px;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        div.page {
+            height: 100vh;
+            display: grid;
+            grid-template-columns:15fr 1fr ;
+            grid-template-rows:1fr 32fr 1fr;
+            grid-template-areas:
+            'header header'
+            'mainContent menu'
+            'footer footer';
+            
+
+        }
+        div.header {
+            background-color: red;
+            grid-area: header;
+            padding: 5px;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        div.menu {
+            background-color: goldenrod;
+            grid-area: menu;
+            text-align: right;
+            padding: 5px;
+        }
+
+        div.mainContent {
+            background-color: white;
+            grid-area: mainContent;
+            padding: 5px;
+            
+        }
+
+        div.footer {
+            background-color: limegreen;
+            grid-area: footer;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="header">Header</div>
+    <div class="menu">Menu</div>
+    <div class="mainContent">
+        <p class="mainContent"><img src="smiley.gif" align="middle" height="120" width="120">Dette er mainContent<img src="smiley.gif" align="middle" height="120" width="120"></p>
+    </div>
+    <div class="footer">Footer</div>
+</div>
+
+</body>
+</html>
