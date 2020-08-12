@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Oblig 2</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.10.0.css">
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .selected {
+            stroke: black;
+            stroke-width: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.10.0.js"></script>
+    <script src="javascript/controller.js"></script>
+    <script>
+        function show() { }
+        let contentDiv;
+        let numbers;
+        let inputValue;
+        let selectedId;
+        let error;
+
+        QUnit.test("Selecter en stolpe om den får inn ID", function (assert) {
+            reset()
+            selectBar('3');
+            assert.equal(selectedId, '3');
+        });
+
+        QUnit.test("Deselecter stolpe om den får inn samme ID", function (assert) {
+            reset()
+            selectBar('1');
+            selectBar('1');
+            assert.equal(selectedId, null);
+        });
+
+        QUnit.test("Velger annen stolpe om den får in ny ID", function (assert) {
+            reset()
+            selectBar('1')
+            selectBar('4');
+            assert.equal(selectedId, '4');
+        });
+
+        QUnit.test("Den valgte stolpa blir sletta", function (assert) {
+            reset()
+            selectBar('3')
+            deleteBar()
+            assert.equal(numbers.length, 4);
+        });
+
+        QUnit.test("Den valgte stolpa blir endra", function (assert) {
+            reset()
+            selectBar('3')
+            inputValue = 6;
+            changeBar()
+            assert.equal(numbers[2], 6);
+        });
+
+        QUnit.test("Stolpe blir lagt til", function (assert) {
+            reset()
+            inputValue = 6;
+            addBar()
+            assert.equal(numbers.length, 6);
+        });
+    </script>
+</body>
+
+</html
